@@ -44,6 +44,9 @@ If you choose to use the default settings, all you need to do is create folders 
 - `~/Pictures/Wallpapers/Time of Day/No Screens/`
 - `~/Pictures/Wallpapers/Time of Day/Go to Sleep/`
 
+###Preferences
+Make sure that Apple > Desktop Pictures is checked in the Desktop & Screen Saver > Desktop preferences. The script will not work with Solid Colors, the iPhoto library or Folders preference.
+
 ###Images
 You must supply your own images. 
  
