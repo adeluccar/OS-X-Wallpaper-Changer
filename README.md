@@ -6,21 +6,27 @@ Applescript for changing the Mac OS X desktop picture based on the time of day
 - Philip Hutchison, April 2013
 - http://pipwerks.com
 - MIT license http://pipwerks.mit-license.org/
+- Forked and customized by Alberto De Lucca, October 2014
 
 ##What it does
-This is an AppleScript that changes your Mac's desktop picture based on the time of day.  The day is split into six 'periods':
+This is an AppleScript that changes your Mac's desktop picture based on the time of day.  The day is split into eleven 'periods':
 
-- Morning Early (12:01am - 8:00am)
-- Morning Late (8:01am - 12:00pm)
-- Afternoon Early (12:01pm - 3:00pm)
-- Afternoon Late (3:01pm - 6:00pm)
-- Evening Early (6:01pm - 9:00pm)
-- Evening Late (9:01pm - 12:00am)
+- Breakfast     (06:01 am - 07:00 am)
+- Learn         (07:01 am - 08:00 am)
+- Work          (08:01 am - 11:00 am)
+- Learn         (11:01 am - 12:00 am)
+- Lunch         (12:01 pm - 01:00 pm)
+- Work          (01:01 pm - 16:00 pm)
+- Keep in Touch (04:01 pm - 06:00 pm)
+- Dinner        (06:01 pm - 07:00 pm)
+- Keep in Touch (07:01 pm - 08:00 pm)
+- No Screens    (08:01 pm - 09:01 pm)
+- Sleep         (09:00 pm - 06:00 am)
 
-Each period has a corresponding folder, which is meant to store images that evoke the period in question. For example, you could have a picture of a sunset in the "Evening Early" folder, or a picture of the moon in the "Evening Late" folder.
+Each period has a corresponding folder, which is meant to store images that evoke the period in question. For example, you could have a picture of a classroom in the "Learn" folder, or a picture of a bed in the "Sleep" folder.
 
-    /Users/YOUR_USER_NAME/Pictures/Wallpapers/Time of Day/Evening Early/sunset.jpg
-    /Users/YOUR_USER_NAME/Pictures/Wallpapers/Time of Day/Evening Late/moon.jpg
+    /Users/YOUR_USER_NAME/Pictures/Wallpapers/Time of Day/Learn/classroom.jpg
+    /Users/YOUR_USER_NAME/Pictures/Wallpapers/Time of Day/Sleep/bed.jpg
 
 **The script will randomly select an image from the corresponding folder.** The image can be in any supported file type, including JPG, GIF and PNG images.
 
@@ -29,27 +35,23 @@ Each period has a corresponding folder, which is meant to store images that evok
 ###Folder structure
 If you choose to use the default settings, all you need to do is create folders in your `Pictures` folder that correspond to the following sample paths:
 
-- `~/Pictures/Wallpapers/Time of Day/Morning Early/`
-- `~/Pictures/Wallpapers/Time of Day/Morning Late/`
-- `~/Pictures/Wallpapers/Time of Day/Afternoon Early/`
-- `~/Pictures/Wallpapers/Time of Day/Afternoon Late/`
-- `~/Pictures/Wallpapers/Time of Day/Evening Early/`
-- `~/Pictures/Wallpapers/Time of Day/Evening Late/`
+- `~/Pictures/Wallpapers/Time of Day/Breakfast/`
+- `~/Pictures/Wallpapers/Time of Day/Learn/`
+- `~/Pictures/Wallpapers/Time of Day/Work/`
+- `~/Pictures/Wallpapers/Time of Day/Lunch/`
+- `~/Pictures/Wallpapers/Time of Day/Keep in Touch/`
+- `~/Pictures/Wallpapers/Time of Day/Dinner/`
+- `~/Pictures/Wallpapers/Time of Day/No Screens/`
+- `~/Pictures/Wallpapers/Time of Day/Go to Sleep/`
 
 ###Images
-You must supply your own images. Personally, I downloaded images from NationalGeographic.com, which provides high quality free wallpaper images. http://ngm.nationalgeographic.com/wallpaper/download
+You must supply your own images. 
  
 ###Script file
-This script file itself can be located anywhere. I keep mine in the `/Pictures/Wallpapers/Time of Day/` folder.
+This script file itself can be located anywhere.
 
-The script must be run at specified intervals using automation of some kind. I use GeekTool, but you may also use a built-in service such as crontab. 
-
-http://developer.apple.com/library/mac/#documentation/Darwin/Reference/ManPages/man1/crontab.1.html
-
-I instruct GeekTool to execute the script every 15 minutes (1800 seconds). Use this line in GeekTool's command field:
-
-    osascript ~/Pictures/Wallpapers/Time\ of\ Day/wallpaper.scpt
-
+The script must be run at specified intervals using automation of some kind.
+I use [Lingon X](https://www.peterborgapps.com/lingon/) to run the script on 30 minute intervals. 
 
 ##Customization
 This script can be freely customized. It is heavily commented to make it easy to understand. For example, you can easily change the specified times of day or folder names by editing the script. You can simplify to something such as "day" and "night", or get even more granular and specify a custom folder for each hour of the day.
